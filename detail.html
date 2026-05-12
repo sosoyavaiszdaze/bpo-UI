@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1280" />
+  <title>Zynect BPO System — Case Detail</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="window">
+
+  <!-- macOS-style titlebar -->
+  <div class="titlebar">
+    <div class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+    <div class="titlebar-title">Zynect BPO System</div>
+  </div>
+
+  <div class="app">
+
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-name">Zynect</div>
+        <div class="brand-sub">BPO SYSTEM</div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item" href="index.html">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 1.7 1 3.2 2.4 4v1.5h4.2V10c1.4-.8 2.4-2.3 2.4-4 0-2.5-2-4.5-4.5-4.5z"/>
+              <path d="M6.4 13.5h3.2M7 15h2"/>
+            </svg>
+          </span>
+          今日の最優先
+        </a>
+        <a class="nav-item active" href="focus.html">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round">
+              <path d="M2.5 5l5.5-3 5.5 3-5.5 3z"/>
+              <path d="M2.5 8l5.5 3 5.5-3M2.5 11l5.5 3 5.5-3"/>
+            </svg>
+          </span>
+          案件
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="2.5" width="10" height="11" rx="1.5"/>
+              <path d="M5.5 6l1.2 1.2L9.5 4.4M5.5 10l1.2 1.2L9.5 8.4"/>
+            </svg>
+          </span>
+          タスク
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="8" r="6"/>
+              <path d="M8 4v4l2.5 2.5"/>
+            </svg>
+          </span>
+          レポート
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h8M5.5 12V8a2.5 2.5 0 015 0v4M8 12v1.5"/>
+            </svg>
+          </span>
+          通知
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="user">
+          <div class="user-av">A</div>
+          <div class="user-meta">
+            <div class="user-name">Ad Ops Team</div>
+            <div class="user-status"><span class="dot"></span>オンライン</div>
+          </div>
+          <div class="user-caret">▾</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ Main ============ -->
+    <main class="main">
+
+      <!-- Date/Time -->
+      <div class="datetime">
+        <div class="dt-date">5月20日(火)</div>
+        <div class="dt-time">9:00 <span class="sun">☀</span></div>
+      </div>
+
+      <!-- Breadcrumb: Level 3 -->
+      <div class="crumb-bar">
+        <span class="lvl">Level 3</span>
+        <a href="index.html">今日の最優先</a>
+        <span class="sep">›</span>
+        <a href="focus.html?t=alerts">未対応アラート</a>
+        <span class="sep">›</span>
+        <span class="here">CASE-2419</span>
+      </div>
+
+      <div class="detail-grid">
+
+        <!-- === Left: main detail === -->
+        <div>
+
+          <!-- Detail head — answers the 4 questions (why / next / who / when) -->
+          <section class="detail-head">
+            <h1 class="detail-name">Meta CAPI 接続が 14時間 切断</h1>
+            <div class="detail-meta">
+              <span>CASE-2419</span>
+              <span class="sep">·</span>
+              <span>Acme 株式会社</span>
+              <span class="sep">·</span>
+              <span class="pill danger"><span class="dot"></span>Critical</span>
+              <span class="pill wait"><span class="dot"></span>Zynect 対応中</span>
+              <span class="sep">·</span>
+              <span>担当 山田 直樹</span>
+            </div>
+          </section>
+
+          <!-- Summary panel — the FOUR questions answered -->
+          <section class="summary-panel">
+            <div class="sp-grid">
+              <div class="sp-block">
+                <div class="sp-label">なぜ起きたか</div>
+                <div class="sp-value">トークン期限切れ</div>
+                <div class="sp-sub">7日前から予兆あり</div>
+              </div>
+              <div class="sp-block">
+                <div class="sp-label">次に何をするか</div>
+                <div class="sp-value">顧客にトークン再発行を依頼</div>
+                <div class="sp-sub">ChatWork 経由で再通知</div>
+              </div>
+              <div class="sp-block">
+                <div class="sp-label">誰待ちか</div>
+                <div class="sp-value">顧客 (Acme 広告担当)</div>
+                <div class="sp-sub">前回応答 2h前</div>
+              </div>
+              <div class="sp-block">
+                <div class="sp-label">いつ測るか</div>
+                <div class="sp-value">D+7 で CV 回復確認</div>
+                <div class="sp-sub">基準: 5/12 → 5/19 平均</div>
+              </div>
+
+              <div class="sp-why">
+                <div>
+                  <div class="sp-label">何が見えたか</div>
+                  <div class="sp-text">
+                    Meta CAPI のシステムトークンが 7日前に期限切れ予兆。
+                    今朝 03:14 に CAPI 転送が停止し、Critical閾値 (2h) を超過。
+                    CV 計測が −38%/日 で推移。
+                  </div>
+                </div>
+                <div>
+                  <div class="sp-label">いま取っている代替策</div>
+                  <div class="sp-text">
+                    GA4 デデュープに自動切替済み。
+                    広告配信自体は継続中。計測の精度低下のみ。
+                    Sev2 に保留中、2h で復旧しない場合 Sev1 にエスカレーション。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Action bar -->
+          <div class="detail-actions">
+            <button class="btn-mini dark">顧客に再通知 ›</button>
+            <button class="btn-mini">代替計測を確認</button>
+            <button class="btn-mini">Incidentにエスカレーション</button>
+          </div>
+
+          <!-- State machine (9 states) -->
+          <div class="states">
+            <div class="state done"><div class="s-dot"></div>detected</div>
+            <div class="state done"><div class="s-dot"></div>notified</div>
+            <div class="state done"><div class="s-dot"></div>acknowledged</div>
+            <div class="state now"><div class="s-dot"></div>planned</div>
+            <div class="state"><div class="s-dot"></div>executed</div>
+            <div class="state"><div class="s-dot"></div>verified</div>
+            <div class="state"><div class="s-dot"></div>measuring</div>
+            <div class="state"><div class="s-dot"></div>learned</div>
+            <div class="state"><div class="s-dot"></div>closed</div>
+          </div>
+
+          <!-- Detail tabs: enter Level 4 -->
+          <div class="dtabs" id="dtabs">
+            <a class="dtab on"  data-pane="trace">Decision Trace</a>
+            <a class="dtab"     data-pane="evidence">Evidence</a>
+            <a class="dtab"     data-pane="outcome">Outcome</a>
+            <a class="dtab"     data-pane="rule">Rule & Guardrail</a>
+            <a class="dtab"     data-pane="audit">Audit Log</a>
+          </div>
+
+          <!-- ============================================
+               Level 4 panes
+               ============================================ -->
+
+          <!-- === Decision Trace === -->
+          <section class="l4-section pane" data-pane="trace">
+            <h3>Decision Trace <span class="h-sub">なぜこの判断に至ったか、時系列で</span></h3>
+            <div class="trace">
+
+              <div class="trace-step">
+                <div class="trace-when">5/13 04:21</div>
+                <div class="trace-dot"></div>
+                <div>
+                  <div class="trace-what">Meta CAPI トークンの期限を 7日後と検知</div>
+                  <div class="trace-why">RULE-CAPI-007 「トークン期限が7日以内なら予兆通知」が発火。</div>
+                  <div class="trace-by">by Zynect Auto · evidence: meta_token.expires_at</div>
+                </div>
+              </div>
+
+              <div class="trace-step">
+                <div class="trace-when">5/13 04:21</div>
+                <div class="trace-dot"></div>
+                <div>
+                  <div class="trace-what">顧客 ChatWork に予兆通知を送信</div>
+                  <div class="trace-why">Tier A クライアントは自動通知を有効化。</div>
+                  <div class="trace-by">by Zynect Auto · template: capi_token_warning_v3</div>
+                </div>
+              </div>
+
+              <div class="trace-step">
+                <div class="trace-when">5/20 03:14</div>
+                <div class="trace-dot"></div>
+                <div>
+                  <div class="trace-what">CAPI 転送停止を検知 (HTTP 401)</div>
+                  <div class="trace-why">期限切れにより認証拒否。CV 計測が即座に -38%/日 へ。</div>
+                  <div class="trace-by">by Zynect Auto · evidence: ingest_meta_capi.log#2419</div>
+                </div>
+              </div>
+
+              <div class="trace-step">
+                <div class="trace-when">5/20 05:14</div>
+                <div class="trace-dot"></div>
+                <div>
+                  <div class="trace-what">Critical 閾値 (2h) を超過、Caseを作成</div>
+                  <div class="trace-why">RULE-INC-002 「重要計測の2h停止は Critical 扱い」。</div>
+                  <div class="trace-by">by Zynect Auto · INC-118 と関連付け</div>
+                </div>
+              </div>
+
+              <div class="trace-step cur">
+                <div class="trace-when">5/20 06:42</div>
+                <div class="trace-dot"></div>
+                <div>
+                  <div class="trace-what">代替計測として GA4 デデュープを自動有効化</div>
+                  <div class="trace-why">配信は継続。計測の精度は一時低下するが、停止は回避。</div>
+                  <div class="trace-by">by Zynect Auto · guardrail: 計測欠損を放置しない</div>
+                </div>
+              </div>
+
+              <div class="trace-step cur">
+                <div class="trace-when">5/20 09:00</div>
+                <div class="trace-dot"></div>
+                <div>
+                  <div class="trace-what">顧客への再認証依頼を送信予定 (Next Action)</div>
+                  <div class="trace-why">担当者の朝の最初の判断として、Command Centerに表示。</div>
+                  <div class="trace-by">by 山田 直樹</div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- === Evidence === -->
+          <section class="l4-section pane" data-pane="evidence" style="display:none;">
+            <h3>Evidence <span class="h-sub">この判断の根拠となった API レスポンス・メトリクス</span></h3>
+
+            <div class="evidence">
+
+              <div class="ev-card">
+                <div class="ev-head">
+                  <div class="ev-title">Meta Graph API · /act_xxx/events</div>
+                  <div class="ev-source">取得: 5/20 03:14:08 JST</div>
+                </div>
+                <div class="ev-body">HTTP/1.1 401 Unauthorized
+{
+  "error": {
+    "message": "Error validating access token: Session expired",
+    "type": "OAuthException",
+    "code": 190,
+    "error_subcode": 463
+  }
+}</div>
+              </div>
+
+              <div class="ev-card">
+                <div class="ev-head">
+                  <div class="ev-title">CV 計測 (24時間)</div>
+                  <div class="ev-source">source: ingest_meta_insights</div>
+                </div>
+                <div class="ev-metric">
+                  <div>
+                    <div class="ev-m-label">Baseline (7日平均)</div>
+                    <div class="ev-m-value">1,842</div>
+                  </div>
+                  <div>
+                    <div class="ev-m-label">Current</div>
+                    <div class="ev-m-value down">1,142</div>
+                  </div>
+                  <div>
+                    <div class="ev-m-label">Δ</div>
+                    <div class="ev-m-value down">−38.0%</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ev-card">
+                <div class="ev-head">
+                  <div class="ev-title">トークン状態 (履歴)</div>
+                  <div class="ev-source">source: meta_token_state</div>
+                </div>
+                <div class="ev-body">5/13 04:21  expires_at = 2025-05-20T03:00:00Z   warn (7d)
+5/20 03:00  expires_at reached                  ✕ expired
+5/20 03:14  refresh attempt                     ✕ no user grant
+5/20 06:42  fallback: GA4 dedup                 ✓ active</div>
+              </div>
+
+              <div class="ev-card">
+                <div class="ev-head">
+                  <div class="ev-title">配信状態</div>
+                  <div class="ev-source">source: meta_delivery_check</div>
+                </div>
+                <div class="ev-metric">
+                  <div>
+                    <div class="ev-m-label">Impressions / h</div>
+                    <div class="ev-m-value">12,840</div>
+                  </div>
+                  <div>
+                    <div class="ev-m-label">Spend / h</div>
+                    <div class="ev-m-value">¥18,420</div>
+                  </div>
+                  <div>
+                    <div class="ev-m-label">配信ヘルス</div>
+                    <div class="ev-m-value up">正常</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- === Outcome === -->
+          <section class="l4-section pane" data-pane="outcome" style="display:none;">
+            <h3>Outcome <span class="h-sub">対応の効果を D+7 / D+14 / D+28 で測定</span></h3>
+
+            <div class="outcome-timeline">
+              <div class="ot-col now">
+                <div class="ot-when"><span class="badge">D+7</span>5/27 測定予定</div>
+                <div class="ot-metric">—</div>
+                <div class="ot-note">CV 回復確認。基準: Baseline 1,842 / 日。</div>
+              </div>
+              <div class="ot-col pending">
+                <div class="ot-when"><span class="badge">D+14</span>6/3 測定予定</div>
+                <div class="ot-metric">—</div>
+                <div class="ot-note">広告効果学習の再収束を確認。CPA Δ ±5% 以内が目標。</div>
+              </div>
+              <div class="ot-col pending">
+                <div class="ot-when"><span class="badge">D+28</span>6/17 測定予定</div>
+                <div class="ot-metric">—</div>
+                <div class="ot-note">トークン運用ルールの改善効果を確認。</div>
+              </div>
+            </div>
+
+            <div class="evidence" style="grid-template-columns: 1fr;">
+              <div class="ev-card">
+                <div class="ev-head">
+                  <div class="ev-title">想定インパクト</div>
+                  <div class="ev-source">対応しなかった場合の試算</div>
+                </div>
+                <div class="ev-metric">
+                  <div>
+                    <div class="ev-m-label">CV 損失 / 日</div>
+                    <div class="ev-m-value down">−700</div>
+                  </div>
+                  <div>
+                    <div class="ev-m-label">広告費の無効計測</div>
+                    <div class="ev-m-value down">¥420k / 日</div>
+                  </div>
+                  <div>
+                    <div class="ev-m-label">CPA 誤差</div>
+                    <div class="ev-m-value down">+38%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- === Rule & Guardrail === -->
+          <section class="l4-section pane" data-pane="rule" style="display:none;">
+            <h3>関連ルール <span class="h-sub">この Case を引き起こした・守ったルール</span></h3>
+            <div class="rq-list">
+              <div class="rq-row ok">
+                <span class="rq-check">✓</span>
+                <span class="rq-label">RULE-CAPI-007 ・ トークン期限が7日以内なら予兆通知</span>
+                <span class="rq-note">5/13 発火済</span>
+              </div>
+              <div class="rq-row ok">
+                <span class="rq-check">✓</span>
+                <span class="rq-label">RULE-INC-002 ・ 重要計測の2h停止は Critical 扱い</span>
+                <span class="rq-note">5/20 05:14 発火</span>
+              </div>
+              <div class="rq-row miss">
+                <span class="rq-check">!</span>
+                <span class="rq-label">RULE-CAPI-021 ・ measurement window が未設定</span>
+                <span class="rq-note">未マップ</span>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 28px;">Guardrail <span class="h-sub">この対応で守られるべき基準</span></h3>
+            <div class="guardrail">
+              <div class="gr-block">
+                <div class="gr-label">配信は止めない</div>
+                <div class="gr-value">遵守中</div>
+                <div class="gr-sub">配信ヘルス 正常</div>
+              </div>
+              <div class="gr-block">
+                <div class="gr-label">計測欠損を放置しない</div>
+                <div class="gr-value">代替計測 有効</div>
+                <div class="gr-sub">GA4 デデュープ</div>
+              </div>
+              <div class="gr-block">
+                <div class="gr-label">2h で復旧しない場合エスカレーション</div>
+                <div class="gr-value">猶予 残り 0h</div>
+                <div class="gr-sub">Sev1 切替が近い</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- === Audit Log === -->
+          <section class="l4-section pane" data-pane="audit" style="display:none;">
+            <h3>Audit Log <span class="h-sub">誰が・いつ・何をしたかの完全な履歴</span></h3>
+            <div class="audit">
+              <div class="audit-row">
+                <span class="audit-when">5/20 09:00</span>
+                <span>Case を閲覧</span>
+                <span class="audit-who">山田 直樹</span>
+              </div>
+              <div class="audit-row">
+                <span class="audit-when">5/20 06:42</span>
+                <span>GA4 デデュープを自動有効化</span>
+                <span class="audit-who">Zynect Auto</span>
+              </div>
+              <div class="audit-row">
+                <span class="audit-when">5/20 05:14</span>
+                <span>Case を Critical で作成 (INC-118 と関連付け)</span>
+                <span class="audit-who">Zynect Auto</span>
+              </div>
+              <div class="audit-row">
+                <span class="audit-when">5/20 03:14</span>
+                <span>Meta CAPI 401 を記録</span>
+                <span class="audit-who">Zynect Auto</span>
+              </div>
+              <div class="audit-row">
+                <span class="audit-when">5/13 04:21</span>
+                <span>予兆通知を顧客 ChatWork に送信</span>
+                <span class="audit-who">Zynect Auto</span>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- === Right: sticky context === -->
+        <aside class="detail-side">
+
+          <div class="side-block">
+            <div class="side-label">CLIENT</div>
+            <div class="side-list">
+              <a href="#">Acme 株式会社</a>
+              <span style="font-size:11.5px; color: var(--text-3);">EC ・ Tier A ・ since 2023.04</span>
+            </div>
+          </div>
+
+          <div class="side-block">
+            <div class="side-label">SLA</div>
+            <dl class="side-kv">
+              <dt>検知</dt><dd>5/20 03:14</dd>
+              <dt>Critical化</dt><dd>5/20 05:14</dd>
+              <dt>納期</dt><dd style="color: var(--red);">本日 中</dd>
+              <dt>経過</dt><dd>14h</dd>
+            </dl>
+          </div>
+
+          <div class="side-block">
+            <div class="side-label">関連</div>
+            <div class="side-list">
+              <a href="#">INC-118 ・ Meta CAPI 障害</a>
+              <a href="#">RULE-CAPI-007</a>
+              <a href="#">RULE-INC-002</a>
+              <a href="#">CASE-2390 (同じ顧客の前回事例)</a>
+            </div>
+          </div>
+
+          <div class="side-block">
+            <div class="side-label">通知履歴</div>
+            <div class="side-list" style="font-size:12px;">
+              <div>5/13 04:21 · 予兆 (ChatWork)</div>
+              <div>5/20 06:00 · Critical (Email)</div>
+              <div style="color: var(--text-3);">— 顧客返信なし —</div>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+  // Tab switching for Level 4 panes
+  (function () {
+    var tabs = document.querySelectorAll('.dtab');
+    var panes = document.querySelectorAll('.pane');
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('on'); });
+        t.classList.add('on');
+        var name = t.getAttribute('data-pane');
+        panes.forEach(function (p) {
+          p.style.display = (p.getAttribute('data-pane') === name) ? '' : 'none';
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

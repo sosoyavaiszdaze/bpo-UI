@@ -1,129 +1,187 @@
-# Zynect BPO System — Operations UI
+# Zynect BPO System — 4-Layer Operations UI
 
-Apple-like の朝会ボードとして完全に再設計した、Zynect BPO System の管理UIプロトタイプです。
+Apple-likeな静けさを保ちつつ、1st viewに情報を集めず、深掘りは下層に逃がす **4階層** 構造で再設計しました。
 
 > 「ダッシュボード」ではなく「朝の最初の判断装置」。
-> 1st viewで伝えるのは **今日まず何をやるか、だけ**。
+> 1st viewは綺麗なまま、詳細判断は Level 2 → 3 → 4 へ。
+
+---
+
+## 階層構造
+
+```
+Level 1  Morning Command       index.html
+   ↓ KPI / 優先アクションをクリック
+Level 2  Focus Queue           focus.html?t=<theme>
+   ↓ 1行をクリック
+Level 3  Detail                detail.html?case=<id>
+   ↓ タブを切替
+Level 4  Evidence / Outcome / Rule  detail.html (タブ内)
+```
+
+| Level | 役割 | 表示する情報 |
+|-------|------|-------------|
+| 1 Morning Command | 今日まず何をするか宣言する | 主メッセージ1文 + 黒CTA1つ + KPI4 + 優先アクション5 |
+| 2 Focus Queue | 1テーマだけのキューを見る | 選択中テーマのリストのみ。他テーマは混ぜない |
+| 3 Detail | 1件を深掘り | なぜ起きたか / 次に何をするか / 誰待ち / いつ測るか |
+| 4 Evidence / Outcome / Rule | 判断の根拠を見る | Decision Trace / API evidence / D+7/14/28 / Guardrail / Audit |
 
 ---
 
 ## 公開URL
 
-- **今日の最優先**: `index.html`
-- **案件**: `clients.html`
-
+ローカル:
 ```bash
 cd /home/user/webapp && python3 -m http.server 8000
 ```
 
----
-
-## 設計方針 (ruthless information selection)
-
-| 設計判断 | 実装 |
-|----------|------|
-| 1st view は1つのことだけ言う | 「本日の最優先は、未対応アラートの確認です。」 |
-| Primary CTA は1つだけ | 黒い「未対応アラートを確認する」ボタン |
-| KPI は補助、主役ではない | 枠線なし・hairline divider 4ブロック |
-| 行動リストは5件まで | 番号付き・行動文のみ・属性なし |
-| 色はほぼ使わない | 警告(赤三角1つ) / オンライン(緑) のみ |
-| macOSアプリのスクショ感 | traffic light + window frame + 角丸 |
+- **Level 1**: http://localhost:8000/
+- **Level 2** (テーマで切替): `/focus.html?t=alerts|connections|cases|outcomes|rules|incidents`
+- **Level 3 + 4**: http://localhost:8000/detail.html?case=2419
 
 ---
 
-## 画面構造 (上から順)
+## Level 1 — Morning Command (index.html)
 
-### 1. macOS window frame
-trafficライト3つ + 中央タイトル「Zynect BPO System」
-柔らかい角丸 + 影で実在感を出す。
+**変更なし**。これまでのApple-likeな朝会ボードを維持。
 
-### 2. Sidebar (静かに存在を消す)
-- ブランド名は **Serif** (Times-like) で上品に
-- BPO SYSTEM はトラッキング広めの極小ラベル
-- ナビは **5項目だけ**: 今日の最優先 / 案件 / タスク / レポート / 通知
-- 選択中は派手な色ではなく薄いグレーの pill
-- 下部に Ad Ops Team + 緑のオンラインドット
+- 主メッセージ: 「本日の最優先は、未対応アラートの確認です。」
+- Primary CTA (黒) 1つ → **Level 2 へ**
+- KPI 4ブロック (枠線なし、hairlineのみ) → **クリックで Level 2 へ**
+- 優先アクション 5行 → **クリックで Level 2 へ**
 
-### 3. 右上 Date/Time
-- 5月20日(火) / 9:00 / ☀
-- 「朝」であることをそっと伝える
+KPIや行をクリックすると、対応するテーマの **Focus Queue** に遷移します。
 
-### 4. Headline (画面の心臓)
+---
+
+## Level 2 — Focus Queue (focus.html)
+
+**1テーマだけを見る画面**。テーマを切り替えてもページ構成は同じで、混ざりません。
+
+### Breadcrumb
 ```
-おはようございます。
-本日の最優先は、未対応アラートの確認です。
+[Level 2]  今日の最優先  ›  未対応アラート
 ```
-- 挨拶は控えめ
-- 主メッセージは大きく濃く太く
-- 数字から入らない。**判断文** から入る
 
-### 5. Primary CTA (黒1つ)
-- ベルアイコン + 文言 + ›
-- 黒はこのボタンだけに使う
-- 主メッセージとボタンが完全に一致
+### テーマ (アンダーラインタブ、6種)
+- 未対応アラート / 接続不備 / 対応中Case / Outcome測定中 / Rule品質 / Incident
 
-### 6. KPI strip (補助)
-- 4ブロック (未対応 / 新規 / 対応中 / 納期)
-- カードではなく、上下hairlineと垂直hairlineだけ
-- 最初の「未対応アラート」だけ赤三角警告
-- それ以外は数字とラベルだけ
-- 全部を重要に見せない
+選んだテーマ以外は **画面に出ない**。
+1画面1テーマの原則を徹底。
 
-### 7. 本日の優先アクション
-- 見出しは小さく落ち着いて
-- 5行ぴったり
-- 各行: 番号(○) + 行動文 + ›
-- 属性 (担当者・SLA・状態など) は **一切載せない**
-- 朝に必要なのは詳細ではなく、着手順
+### Sub-filter
+- すべて / Critical / High / Zynect待ち / 顧客待ち
+- 並び替え: 重要度 → 期限
+
+### Queue list (列は最小限)
+```
+No.  Title + Client/Case/Industry      Severity     Due       ›
+```
+
+各行クリックで **Level 3 (Detail)** へ。
 
 ---
 
-## 色の意味 (固定)
+## Level 3 — Detail (detail.html)
 
-| 色 | 使う場面 | 使わない |
-|----|----------|---------|
-| 黒 #111113 | Primary CTA のみ | 大量に使わない |
-| 赤 #d4341f | 未対応アラートの三角だけ | テーブル装飾 |
-| 緑 #2fa164 | オンライン状態のドットだけ | 完了マーク |
-| グレー階調 | テキストと hairline | 過剰な装飾 |
+**1件の Case を深掘り。1st viewで4つの問いに答える。**
 
-派手なSaaSブルーやグラデーションは一切使わない。
+### Breadcrumb
+```
+[Level 3]  今日の最優先  ›  未対応アラート  ›  CASE-2419
+```
 
----
+### Detail head
+- Case名 + ID + Client + Severity Pill + 状態Pill + 担当者
 
-## タイポグラフィ
+### Summary panel — 4つの問いに即答
+1. **なぜ起きたか** — トークン期限切れ (7日前から予兆)
+2. **次に何をするか** — 顧客にトークン再発行を依頼
+3. **誰待ちか** — 顧客 (Acme広告担当)、前回応答 2h前
+4. **いつ測るか** — D+7でCV回復確認
 
-| 用途 | フォント | サイズ |
-|------|----------|--------|
-| ブランド名 Zynect | Times系 Serif | 28px / 400 |
-| 主メッセージ | SF Pro / Hiragino | 28px / 600 / -0.025em |
-| KPI 数値 | tabular-nums | 34px / 300 / -0.03em |
-| 本文 | SF Pro / Hiragino | 14-14.5px |
+その下に「**何が見えたか**」「**いま取っている代替策**」を文章で。
+これらは Decision Trace の要約として 1st view に置く。
 
-数値は **light weight (300)** にすることで Apple-like の上品さを出す。
-タイトはタイトに、本文はゆったり。
+### State machine (9状態を横に)
+```
+detected → notified → acknowledged → ●planned → executed → verified → measuring → learned → closed
+```
+塗りつぶし = 完了、太丸 = 現在地。
 
----
+### Action bar
+- 黒「顧客に再通知 ›」 + 「代替計測を確認」 + 「Incidentにエスカレーション」
 
-## なぜ Apple-like に見えるか
-
-1. **強いメッセージは1つだけ** — 「最優先は」の一文のみ
-2. **黒は1ヶ所だけ** — Primary CTAのみ
-3. **色は意味として使う** — 警告とオンライン以外は無彩色
-4. **余白が情報設計** — 装飾でなく視線誘導
-5. **序列が崩れない** — メッセージ → CTA → KPI → リスト の順で必ず読まれる
+### 右カラム (sticky context)
+- Client / SLA / 関連 (INC, RULE, 過去Case) / 通知履歴
 
 ---
 
-## 案件画面 (clients.html) も同じルールで設計
+## Level 4 — Evidence / Outcome / Rule (detail.html 内のタブ)
 
-- 「**注意が必要な案件は、5件です。**」を1st view主メッセージに
-- 補助で「うち 2件 は、本日中の対応が必要です。」(数字を赤で1ヶ所だけ)
-- segmented filter は薄い背景の pill
-- 行は番号付きアクションリストと同じ抑制
-- 各行: 名前 / 状態ドット / Main issue / Owner / ›
-- クリックで「なぜ注意が必要か」「次のアクション」がインライン展開
-- 1st viewには接続マトリクス・open case 数・健全性スコアなどを**出さない**
+Detailの下部にタブで5枚。**1st viewには出さず、必要な時だけ開く**。
+
+### 1. Decision Trace
+時系列で「なぜこの判断に至ったか」。
+- 検知 → 予兆通知 → 停止検知 → Critical化 → 代替計測自動有効化 → 顧客通知予定
+- 各ステップに「by 誰 / evidence参照」
+
+### 2. Evidence
+API レスポンス・メトリクスの生情報。
+- Meta Graph API の `401 Unauthorized` 原文
+- CV計測 (Baseline / Current / Δ)
+- トークン状態の履歴ログ
+- 配信状態 (Impressions/h, Spend/h, ヘルス)
+
+### 3. Outcome (D+7 / D+14 / D+28)
+```
+D+7  5/27 測定予定  CV回復確認 / Baseline 1,842/日
+D+14 6/3  測定予定  CPA Δ ±5% 以内
+D+28 6/17 測定予定  運用ルールの改善効果
+```
++ 「対応しなかった場合の試算」も同タブに。
+
+### 4. Rule & Guardrail
+- 関連ルール (発火済 / 未マップ)
+- Guardrail 3軸: 「配信は止めない」「計測欠損を放置しない」「2hで復旧しない場合エスカレーション」
+
+### 5. Audit Log
+誰が・いつ・何をしたか、コンパクトに時系列で。
+
+---
+
+## 動線まとめ
+
+```
+[Level 1] 主メッセージ「未対応アラート12件」
+   ↓ 黒CTA "未対応アラートを確認する"
+[Level 2] focus.html?t=alerts — 12件のキュー
+   ↓ "Meta CAPI 接続が 14時間 切断" をクリック
+[Level 3] detail.html?case=2419
+   - 4つの問いに即答 (なぜ/次/誰待ち/いつ測る)
+   - State machine で進捗位置
+   ↓ タブ "Evidence" をクリック
+[Level 4] Meta Graph API の生レスポンス、CV計測Δ
+   ↓ タブ "Outcome" をクリック
+[Level 4] D+7 / D+14 / D+28 の測定計画と試算
+```
+
+5秒で「未対応アラートを最優先」と判断 → 5クリック以内に「なぜ起きたか」「次にすること」が把握でき、さらにクリックすれば API evidence まで辿れる。
+
+---
+
+## 色のルール (変更なし、厳格運用)
+
+| 色 | 使う場面 |
+|----|---------|
+| 黒 #111113 | Primary CTA / 強調CTA・現在地状態のみ |
+| 赤 #d4341f | Critical警告三角、Critical Pill、期限超過 |
+| 黄系 #d4a02a | High warning dot のみ |
+| 緑 #2fa164 | オンライン、改善 |
+| 無彩色 | それ以外すべて |
+
+Level 4 の Evidence でも色は使わず、↑/↓ のような微妙な色変化のみ。
+派手なJSONビューアやチャートライブラリ風の装飾は一切なし。
 
 ---
 
@@ -131,20 +189,24 @@ trafficライト3つ + 中央タイトル「Zynect BPO System」
 
 ```
 /home/user/webapp/
-├── index.html          ← 今日の最優先
-├── clients.html        ← 案件
-├── css/style.css       ← デザイントークン + 全コンポーネント
-├── js/app.js           ← 行展開のみ
+├── index.html      ← Level 1: Morning Command (静かな朝会ボード)
+├── focus.html      ← Level 2: Focus Queue (テーマ別キュー)
+├── detail.html     ← Level 3 + 4: Detail + Evidence/Outcome/Rule タブ
+├── clients.html    ← (前バージョン、参考用に残置)
+├── css/style.css   ← 4階層分のコンポーネント
+├── js/app.js       ← 行展開・タブ切替
 └── README.md
 ```
 
 ---
 
-## 次フェーズ
+## 階層化で守ったこと
 
-OKなら、同じ抑制で以下に展開できます:
-
-1. タスク画面 (5行のさらに先)
-2. 案件詳細 (タブ: サマリ / 対応履歴 / 関連 / 通知)
-3. レポート (週次1メッセージ)
-4. 通知 (未読・既読のみ)
+| ルール | 実装 |
+|--------|------|
+| 1st view (Level 1) で全部を見せない | KPI4 + アクション5 のみ。テーブルなし |
+| 1画面1テーマ (Level 2) | テーマ切替で他テーマは消える |
+| 4つの問いに即答 (Level 3) | Summary panel の4ブロック |
+| 詳細判断は下層に逃がす (Level 4) | タブで初期非表示、必要時のみ展開 |
+| 色は意味として使う | 黒=CTA / 赤=危険 / 緑=正常 のみ固定 |
+| Apple-likeな静けさ | 余白、hairline、light weight、Serif Brand |

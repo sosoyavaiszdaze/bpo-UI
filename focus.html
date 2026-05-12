@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1280" />
+  <title>Zynect BPO System — Focus</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="window">
+
+  <!-- macOS-style titlebar -->
+  <div class="titlebar">
+    <div class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+    <div class="titlebar-title">Zynect BPO System</div>
+  </div>
+
+  <div class="app">
+
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-name">Zynect</div>
+        <div class="brand-sub">BPO SYSTEM</div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item" href="index.html">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 1.7 1 3.2 2.4 4v1.5h4.2V10c1.4-.8 2.4-2.3 2.4-4 0-2.5-2-4.5-4.5-4.5z"/>
+              <path d="M6.4 13.5h3.2M7 15h2"/>
+            </svg>
+          </span>
+          今日の最優先
+        </a>
+        <a class="nav-item active" href="focus.html">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round">
+              <path d="M2.5 5l5.5-3 5.5 3-5.5 3z"/>
+              <path d="M2.5 8l5.5 3 5.5-3M2.5 11l5.5 3 5.5-3"/>
+            </svg>
+          </span>
+          案件
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="2.5" width="10" height="11" rx="1.5"/>
+              <path d="M5.5 6l1.2 1.2L9.5 4.4M5.5 10l1.2 1.2L9.5 8.4"/>
+            </svg>
+          </span>
+          タスク
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="8" r="6"/>
+              <path d="M8 4v4l2.5 2.5"/>
+            </svg>
+          </span>
+          レポート
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h8M5.5 12V8a2.5 2.5 0 015 0v4M8 12v1.5"/>
+            </svg>
+          </span>
+          通知
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="user">
+          <div class="user-av">A</div>
+          <div class="user-meta">
+            <div class="user-name">Ad Ops Team</div>
+            <div class="user-status"><span class="dot"></span>オンライン</div>
+          </div>
+          <div class="user-caret">▾</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============ Main ============ -->
+    <main class="main">
+
+      <!-- Date/Time -->
+      <div class="datetime">
+        <div class="dt-date">5月20日(火)</div>
+        <div class="dt-time">9:00 <span class="sun">☀</span></div>
+      </div>
+
+      <!-- Breadcrumb: Level 2 -->
+      <div class="crumb-bar">
+        <span class="lvl">Level 2</span>
+        <a href="index.html">今日の最優先</a>
+        <span class="sep">›</span>
+        <span class="here" id="crumb-here">未対応アラート</span>
+      </div>
+
+      <!-- Focus Head -->
+      <section class="focus-head">
+        <div class="focus-eyebrow">Focus Queue</div>
+        <h1 class="focus-title" id="focus-title">未対応アラート 12件</h1>
+        <p class="focus-sub" id="focus-sub">うち <em>2件</em> は本日中の対応が必要です。Critical は <em>1件</em>。</p>
+      </section>
+
+      <!-- Theme tabs: pick ONE theme. -->
+      <div class="theme-tabs">
+        <a class="theme-tab on"  href="focus.html?t=alerts">未対応アラート<span class="n">12</span></a>
+        <a class="theme-tab"     href="focus.html?t=connections">接続不備<span class="n">8</span></a>
+        <a class="theme-tab"     href="focus.html?t=cases">対応中Case<span class="n">23</span></a>
+        <a class="theme-tab"     href="focus.html?t=outcomes">Outcome測定中<span class="n">14</span></a>
+        <a class="theme-tab"     href="focus.html?t=rules">Rule品質<span class="n">37</span></a>
+        <a class="theme-tab"     href="focus.html?t=incidents">Incident<span class="n">2</span></a>
+      </div>
+
+      <!-- Sub-filter for the chosen theme -->
+      <div class="subfilter" id="subfilter">
+        <button class="chip on">すべて <span class="n">12</span></button>
+        <button class="chip">Critical <span class="n">1</span></button>
+        <button class="chip">High <span class="n">5</span></button>
+        <button class="chip">Zynect待ち <span class="n">7</span></button>
+        <button class="chip">顧客待ち <span class="n">5</span></button>
+        <div class="spacer"></div>
+        <span class="sort">並び替え: 重要度 → 期限  ▾</span>
+      </div>
+
+      <!-- Queue list -->
+      <ul class="q-list" id="q-list">
+
+        <li class="q-row" onclick="location.href='detail.html?case=2419'">
+          <div class="q-num">01</div>
+          <div class="q-main">
+            <div class="q-title">Meta CAPI 接続が 14時間 切断</div>
+            <div class="q-meta">
+              <span>Acme 株式会社</span>
+              <span class="sep">CASE-2419</span>
+              <span class="sep">EC ・ Tier A</span>
+            </div>
+          </div>
+          <div class="q-status danger"><span class="dot"></span>Critical</div>
+          <div class="q-due over">2h 超過</div>
+          <span class="chev-r">›</span>
+        </li>
+
+        <li class="q-row" onclick="location.href='detail.html?case=2418'">
+          <div class="q-num">02</div>
+          <div class="q-main">
+            <div class="q-title">Google Ads tCPA が学習を阻害</div>
+            <div class="q-meta">
+              <span>Beam Wear</span>
+              <span class="sep">CASE-2418</span>
+              <span class="sep">D2C ・ Tier B</span>
+            </div>
+          </div>
+          <div class="q-status warn"><span class="dot"></span>High</div>
+          <div class="q-due today">本日 18:00</div>
+          <span class="chev-r">›</span>
+        </li>
+
+        <li class="q-row" onclick="location.href='detail.html?case=2415'">
+          <div class="q-num">03</div>
+          <div class="q-main">
+            <div class="q-title">TikTok クリエイティブ疲労 検知</div>
+            <div class="q-meta">
+              <span>Lumi Cosmetics</span>
+              <span class="sep">CASE-2415</span>
+              <span class="sep">Beauty ・ Tier A</span>
+            </div>
+          </div>
+          <div class="q-status wait"><span class="dot"></span>顧客待ち</div>
+          <div class="q-due">明日 12:00</div>
+          <span class="chev-r">›</span>
+        </li>
+
+        <li class="q-row" onclick="location.href='detail.html?case=2410'">
+          <div class="q-num">04</div>
+          <div class="q-main">
+            <div class="q-title">SKAN postback が 4-9% 欠損</div>
+            <div class="q-meta">
+              <span>Pocket Quest</span>
+              <span class="sep">CASE-2410</span>
+              <span class="sep">Mobile App ・ Tier A</span>
+            </div>
+          </div>
+          <div class="q-status warn"><span class="dot"></span>High</div>
+          <div class="q-due today">本日 EOD</div>
+          <span class="chev-r">›</span>
+        </li>
+
+        <li class="q-row" onclick="location.href='detail.html?case=2402'">
+          <div class="q-num">05</div>
+          <div class="q-main">
+            <div class="q-title">週次レポート未承認 (3週連続)</div>
+            <div class="q-meta">
+              <span>Nori Foods</span>
+              <span class="sep">CASE-2402</span>
+              <span class="sep">CPG ・ Tier B</span>
+            </div>
+          </div>
+          <div class="q-status wait"><span class="dot"></span>顧客待ち</div>
+          <div class="q-due">3日経過</div>
+          <span class="chev-r">›</span>
+        </li>
+
+        <li class="q-row" onclick="location.href='detail.html?case=2398'">
+          <div class="q-num">06</div>
+          <div class="q-main">
+            <div class="q-title">CRM 同期が 24時間 停止</div>
+            <div class="q-meta">
+              <span>Hoshi Mobility</span>
+              <span class="sep">CASE-2398</span>
+              <span class="sep">Auto ・ Tier A</span>
+            </div>
+          </div>
+          <div class="q-status warn"><span class="dot"></span>High</div>
+          <div class="q-due">明日</div>
+          <span class="chev-r">›</span>
+        </li>
+
+        <li class="q-row" onclick="location.href='detail.html?case=2395'">
+          <div class="q-num">07</div>
+          <div class="q-main">
+            <div class="q-title">ROAS 閾値割れ (週次−18%)</div>
+            <div class="q-meta">
+              <span>Vera Travel</span>
+              <span class="sep">CASE-2395</span>
+              <span class="sep">Travel ・ Tier B</span>
+            </div>
+          </div>
+          <div class="q-status warn"><span class="dot"></span>High</div>
+          <div class="q-due">明日</div>
+          <span class="chev-r">›</span>
+        </li>
+
+        <li class="q-row" onclick="location.href='detail.html?case=2390'">
+          <div class="q-num">08</div>
+          <div class="q-main">
+            <div class="q-title">Meta 予算配分の最適化提案</div>
+            <div class="q-meta">
+              <span>Sora Bank</span>
+              <span class="sep">CASE-2390</span>
+              <span class="sep">Finance ・ Tier A</span>
+            </div>
+          </div>
+          <div class="q-status"><span class="dot"></span>Medium</div>
+          <div class="q-due">3日後</div>
+          <span class="chev-r">›</span>
+        </li>
+
+      </ul>
+
+    </main>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+  // Theme switch via ?t= query — same Level 2 page, different focus.
+  (function () {
+    var t = new URLSearchParams(location.search).get('t') || 'alerts';
+    var themes = {
+      alerts:      { title: '未対応アラート 12件',  sub: 'うち <em>2件</em> は本日中の対応が必要です。Critical は <em>1件</em>。',  crumb: '未対応アラート' },
+      connections: { title: '接続不備 8件',         sub: 'Required <em>3件</em> が運用を止めています。Optional は <em class="warn">5件</em>。', crumb: '接続不備' },
+      cases:       { title: '対応中の Case 23件',   sub: 'Zynect待ち <em>11件</em> ・ 顧客待ち <em class="warn">6件</em> ・ 測定待ち 6件。',  crumb: '対応中Case' },
+      outcomes:    { title: 'Outcome 測定中 14件',  sub: 'D+7 が <em>4件</em>、D+14 が 7件、D+28 が 3件。',                          crumb: 'Outcome測定中' },
+      rules:       { title: '顧客に出せないルール 37件', sub: 'Quality blocker <em>12件</em> ・ Missing guardrail <em class="warn">8件</em>。', crumb: 'Rule品質' },
+      incidents:   { title: '運用を止めている Incident 2件', sub: '<em>Sev1: 1件</em> ・ Sev2: 1件 ・ 自己復旧中: 3件。',          crumb: 'Incident' }
+    };
+    var th = themes[t] || themes.alerts;
+    document.getElementById('focus-title').textContent = th.title;
+    document.getElementById('focus-sub').innerHTML = th.sub;
+    document.getElementById('crumb-here').textContent = th.crumb;
+
+    // Activate matching tab
+    document.querySelectorAll('.theme-tab').forEach(function (a) {
+      a.classList.remove('on');
+      if (a.href.indexOf('t=' + t) > -1) a.classList.add('on');
+    });
+  })();
+</script>
+</body>
+</html>
