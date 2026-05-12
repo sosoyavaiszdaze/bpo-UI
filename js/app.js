@@ -1,45 +1,22 @@
-/* Zynect BPO — minimal interaction layer
-   Row expand / collapse for tables.
+/* Zynect BPO — minimal interaction
+   Toggle expand/collapse for client rows.
 */
 (function () {
   'use strict';
 
-  window.toggleRow = function (tr) {
-    if (!tr) return;
-    var next = tr.nextElementSibling;
-    var isDetail = next && next.classList && next.classList.contains('row-detail-tr');
+  window.toggleRow = function (row) {
+    if (!row) return;
+    var parent = row.parentNode;
+    if (!parent) return;
 
-    // Toggle expanded state on the main row
-    var willExpand = !tr.classList.contains('expanded');
+    var willExpand = !row.classList.contains('expanded');
 
-    // Collapse all other expanded rows in the same table for clean focus
-    var tbody = tr.parentNode;
-    if (tbody) {
-      Array.prototype.forEach.call(tbody.querySelectorAll('tr.expanded'), function (r) {
-        if (r !== tr) {
-          r.classList.remove('expanded');
-          var d = r.nextElementSibling;
-          if (d && d.classList.contains('row-detail-tr')) d.style.display = 'none';
-        }
-      });
-    }
-
-    if (willExpand) {
-      tr.classList.add('expanded');
-      if (isDetail) next.style.display = '';
-    } else {
-      tr.classList.remove('expanded');
-      if (isDetail) next.style.display = 'none';
-    }
-  };
-
-  // Initialize: hide all detail rows except those whose parent starts as .expanded
-  document.addEventListener('DOMContentLoaded', function () {
-    Array.prototype.forEach.call(document.querySelectorAll('tr.row-detail-tr'), function (dr) {
-      var prev = dr.previousElementSibling;
-      if (!prev || !prev.classList.contains('expanded')) {
-        dr.style.display = 'none';
-      }
+    // Collapse any other expanded row for clean focus
+    Array.prototype.forEach.call(parent.querySelectorAll('.client-row.expanded'), function (r) {
+      if (r !== row) r.classList.remove('expanded');
     });
-  });
+
+    if (willExpand) row.classList.add('expanded');
+    else row.classList.remove('expanded');
+  };
 })();

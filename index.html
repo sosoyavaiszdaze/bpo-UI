@@ -3,354 +3,184 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=1280" />
-  <title>Zynect BPO System — Operations Command Center</title>
+  <title>Zynect BPO System</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div class="app">
 
-  <!-- ============ Sidebar ============ -->
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-mark">Z</div>
-      <div>
+<div class="window">
+
+  <!-- macOS-style titlebar -->
+  <div class="titlebar">
+    <div class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+    <div class="titlebar-title">Zynect BPO System</div>
+  </div>
+
+  <div class="app">
+
+    <!-- ============ Sidebar ============ -->
+    <aside class="sidebar">
+      <div class="brand">
         <div class="brand-name">Zynect</div>
-        <div class="brand-sub">BPO Operations</div>
-      </div>
-    </div>
-
-    <div class="nav-section">Today</div>
-    <a class="nav-item active" href="index.html">
-      <span><span class="nav-ico">◆</span>Command Center</span>
-      <span class="nav-count red">2</span>
-    </a>
-
-    <div class="nav-section">Workbenches</div>
-    <a class="nav-item" href="clients.html">
-      <span><span class="nav-ico">○</span>Clients</span>
-      <span class="nav-count orange">5</span>
-    </a>
-    <a class="nav-item" href="#">
-      <span><span class="nav-ico">⌁</span>Connections</span>
-      <span class="nav-count orange">8</span>
-    </a>
-    <a class="nav-item" href="#">
-      <span><span class="nav-ico">▤</span>Cases</span>
-      <span class="nav-count">23</span>
-    </a>
-    <a class="nav-item" href="#">
-      <span><span class="nav-ico">↗</span>Outcomes</span>
-      <span class="nav-count">14</span>
-    </a>
-    <a class="nav-item" href="#">
-      <span><span class="nav-ico">⚑</span>Rule Quality</span>
-      <span class="nav-count orange">37</span>
-    </a>
-    <a class="nav-item" href="#">
-      <span><span class="nav-ico">!</span>Incidents</span>
-      <span class="nav-count red">2</span>
-    </a>
-
-    <div class="nav-section">System</div>
-    <a class="nav-item" href="#"><span><span class="nav-ico">⊞</span>Notifications</span></a>
-    <a class="nav-item" href="#"><span><span class="nav-ico">⚙</span>Settings</span></a>
-    <a class="nav-item" href="#"><span><span class="nav-ico">▷</span>Audit Log</span></a>
-  </aside>
-
-  <!-- ============ Main ============ -->
-  <div class="main">
-
-    <header class="topbar">
-      <div class="crumb"><strong>Operations Command Center</strong></div>
-      <div class="topbar-right">
-        <div class="topbar-meta">Tue, May 12 · <b>09:14 JST</b> · last sync 2 min ago</div>
-        <button class="btn sm ghost">⤓ Export</button>
-        <div class="avatar">YT</div>
-      </div>
-    </header>
-
-    <div class="content">
-
-      <!-- ====== 1st view: the ONE message ====== -->
-      <div class="page-head">
-        <div>
-          <h1 class="page-title">おはようございます、田中さん</h1>
-          <p class="page-sub">今日 担当 12 クライアント · open case 23 件 · 測定中 14 件</p>
-        </div>
+        <div class="brand-sub">BPO SYSTEM</div>
       </div>
 
-      <div class="headline">
-        <div class="headline-text">
-          <span class="headline-eyebrow">Today's priority</span>
-          <span class="headline-msg">
-            今日は <em>Critical 2 件</em> を最優先で処理してください。
-            次に <em class="orange">顧客返信待ち 6 件</em> のリマインドを送ります。
+      <nav class="nav">
+        <a class="nav-item active" href="index.html">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 1.5c-2.5 0-4.5 2-4.5 4.5 0 1.7 1 3.2 2.4 4v1.5h4.2V10c1.4-.8 2.4-2.3 2.4-4 0-2.5-2-4.5-4.5-4.5z"/>
+              <path d="M6.4 13.5h3.2M7 15h2"/>
+            </svg>
           </span>
+          今日の最優先
+        </a>
+        <a class="nav-item" href="clients.html">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round">
+              <path d="M2.5 5l5.5-3 5.5 3-5.5 3z"/>
+              <path d="M2.5 8l5.5 3 5.5-3M2.5 11l5.5 3 5.5-3"/>
+            </svg>
+          </span>
+          案件
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="2.5" width="10" height="11" rx="1.5"/>
+              <path d="M5.5 6l1.2 1.2L9.5 4.4M5.5 10l1.2 1.2L9.5 8.4"/>
+            </svg>
+          </span>
+          タスク
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="8" r="6"/>
+              <path d="M8 4v4l2.5 2.5"/>
+            </svg>
+          </span>
+          レポート
+        </a>
+        <a class="nav-item" href="#">
+          <span class="nav-ico">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h8M5.5 12V8a2.5 2.5 0 015 0v4M8 12v1.5"/>
+            </svg>
+          </span>
+          通知
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="user">
+          <div class="user-av">A</div>
+          <div class="user-meta">
+            <div class="user-name">Ad Ops Team</div>
+            <div class="user-status"><span class="dot"></span>オンライン</div>
+          </div>
+          <div class="user-caret">▾</div>
         </div>
-        <div style="display:flex; gap:8px;">
-          <button class="btn">あとで</button>
-          <button class="btn danger">Criticalから対応する →</button>
+      </div>
+    </aside>
+
+    <!-- ============ Main ============ -->
+    <main class="main">
+
+      <!-- Date/Time (upper right) -->
+      <div class="datetime">
+        <div class="dt-date">5月20日(火)</div>
+        <div class="dt-time">9:00 <span class="sun">☀</span></div>
+      </div>
+
+      <!-- Headline: ONE message -->
+      <section class="headline">
+        <p class="greeting">おはようございます。</p>
+        <h1 class="priority-msg">本日の最優先は、未対応アラートの確認です。</h1>
+      </section>
+
+      <!-- Single Primary CTA -->
+      <button class="cta">
+        <span class="bell">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11.5h8M5.5 11.5V7.5a2.5 2.5 0 015 0v4M8 11.5v1.5"/>
+          </svg>
+        </span>
+        未対応アラートを確認する
+        <span class="arr">›</span>
+      </button>
+
+      <!-- KPI strip: exactly 4, borderless, hairline dividers -->
+      <div class="kpi-strip">
+        <div class="kpi">
+          <div class="kpi-label">未対応アラート</div>
+          <div class="kpi-row">
+            <div class="kpi-value">
+              12
+              <span class="kpi-warn">
+                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 1.5l6.5 11h-13z"/>
+                  <path d="M8 6v3M8 11v.01"/>
+                </svg>
+              </span>
+            </div>
+            <span class="kpi-chev">›</span>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">本日の新規案件</div>
+          <div class="kpi-row">
+            <div class="kpi-value">8</div>
+            <span class="kpi-chev">›</span>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">対応中の案件</div>
+          <div class="kpi-row">
+            <div class="kpi-value">23</div>
+            <span class="kpi-chev">›</span>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">本日の納期案件</div>
+          <div class="kpi-row">
+            <div class="kpi-value">5</div>
+            <span class="kpi-chev">›</span>
+          </div>
         </div>
       </div>
 
-      <!-- ====== KPI: max 4 ====== -->
-      <div class="kpi-row">
-        <div class="kpi">
-          <div class="kpi-label">Critical incidents</div>
-          <div class="kpi-value red">2</div>
-          <div class="kpi-foot"><span class="delta up">▲ +1</span> 昨日比 · 影響 3 client</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">Zynect待ち</div>
-          <div class="kpi-value blue">11</div>
-          <div class="kpi-foot">うち <b>2</b> は期限超過</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">顧客待ち</div>
-          <div class="kpi-value purple">6</div>
-          <div class="kpi-foot">最古 3 日経過</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-label">接続不備</div>
-          <div class="kpi-value orange">8</div>
-          <div class="kpi-foot">うち Required <b>3</b></div>
-        </div>
-      </div>
+      <!-- Priority Actions: exactly 5, minimal -->
+      <h2 class="section-title">本日の優先アクション</h2>
+      <ol class="action-list">
+        <li class="action-row">
+          <div class="action-num">1</div>
+          <div class="action-text">未対応アラートを確認する</div>
+          <span class="action-chev">›</span>
+        </li>
+        <li class="action-row">
+          <div class="action-num">2</div>
+          <div class="action-text">本日の納期案件を確認する</div>
+          <span class="action-chev">›</span>
+        </li>
+        <li class="action-row">
+          <div class="action-num">3</div>
+          <div class="action-text">新規案件を確認してアサインする</div>
+          <span class="action-chev">›</span>
+        </li>
+        <li class="action-row">
+          <div class="action-num">4</div>
+          <div class="action-text">対応中の案件の進捗を更新する</div>
+          <span class="action-chev">›</span>
+        </li>
+        <li class="action-row">
+          <div class="action-num">5</div>
+          <div class="action-text">クライアントからの連絡を確認する</div>
+          <span class="action-chev">›</span>
+        </li>
+      </ol>
 
-      <!-- ====== Main: top 5 priority tasks ====== -->
-      <div class="section">
-        <div class="section-head">
-          <div class="section-title">
-            今日の最優先タスク
-            <span class="count">5 件</span>
-          </div>
-          <a class="section-link" href="#">すべてのタスクを開く →</a>
-        </div>
-
-        <div class="tbl-wrap">
-          <table class="tbl">
-            <thead>
-              <tr>
-                <th style="width:30%;">Task</th>
-                <th style="width:14%;">Client</th>
-                <th style="width:9%;">Severity</th>
-                <th style="width:12%;">Owner</th>
-                <th style="width:11%;">Due</th>
-                <th>Next action</th>
-                <th style="width:30px;"></th>
-              </tr>
-            </thead>
-            <tbody>
-
-              <!-- Row 1 (expanded by default to show interaction) -->
-              <tr class="expanded" onclick="toggleRow(this)">
-                <td>
-                  <div class="cell-title"><span class="chev">▶</span> Meta CAPI 接続が 14h 切断</div>
-                  <div class="cell-sub">CASE-2419 · incident-linked</div>
-                </td>
-                <td>
-                  <div class="cell-title">Acme 株式会社</div>
-                  <div class="cell-sub">EC · Tier A</div>
-                </td>
-                <td><span class="badge red"><span class="dot"></span>Critical</span></td>
-                <td>
-                  <span class="owner"><span class="owner-av zynect">ZY</span>Zynect Ops</span>
-                </td>
-                <td><span class="due overdue">2h 超過</span></td>
-                <td>顧客にトークン再発行を依頼</td>
-                <td style="text-align:right; color:var(--text-4);">›</td>
-              </tr>
-              <tr class="row-detail-tr">
-                <td colspan="7">
-                  <div class="row-detail">
-                    <div class="det-block">
-                      <span class="det-label">Detected</span>
-                      <span class="det-value">今日 07:01</span>
-                    </div>
-                    <div class="det-block">
-                      <span class="det-label">Impact (推定)</span>
-                      <span class="det-value">CV 計測 −38% / 日</span>
-                    </div>
-                    <div class="det-block">
-                      <span class="det-label">State</span>
-                      <span class="det-value"><span class="badge blue">notified</span> → planned</span>
-                    </div>
-                    <div class="det-block">
-                      <span class="det-label">Related</span>
-                      <span class="det-value">INC-118, RULE-CAPI-007</span>
-                    </div>
-                    <div class="det-block det-grid-2">
-                      <span class="det-label">Why now</span>
-                      <span class="det-value muted">
-                        Meta側のシステムトークンが 7 日前に期限切れ予兆 → 今朝 03:14 にCAPI転送が停止。Critical閾値(2h)を超過。
-                      </span>
-                    </div>
-                    <div class="det-block det-grid-2">
-                      <span class="det-label">Decision (Zynect)</span>
-                      <span class="det-value muted">
-                        顧客側で再認証が必要。代替として広告計測は GA4 デデュープに切替済み (自動)。
-                      </span>
-                    </div>
-                    <div class="det-actions">
-                      <button class="btn danger sm">クライアントに通知 →</button>
-                      <button class="btn sm">Caseを開く</button>
-                      <button class="btn sm ghost">関連 Incident を見る</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Row 2 -->
-              <tr onclick="toggleRow(this)">
-                <td>
-                  <div class="cell-title"><span class="chev">▶</span> Google Ads tCPA 設定が学習を阻害</div>
-                  <div class="cell-sub">CASE-2418 · rule R-GADS-112</div>
-                </td>
-                <td>
-                  <div class="cell-title">Beam Wear</div>
-                  <div class="cell-sub">D2C · Tier B</div>
-                </td>
-                <td><span class="badge red"><span class="dot"></span>Critical</span></td>
-                <td><span class="owner"><span class="owner-av zynect">ZY</span>運用 1</span></td>
-                <td><span class="due today">今日 18:00</span></td>
-                <td>tCPA を −15% で再提案</td>
-                <td style="text-align:right; color:var(--text-4);">›</td>
-              </tr>
-
-              <!-- Row 3 -->
-              <tr onclick="toggleRow(this)">
-                <td>
-                  <div class="cell-title"><span class="chev">▶</span> TikTok クリエイティブ疲労 検知 (Hook率)</div>
-                  <div class="cell-sub">CASE-2415 · 3 ad sets</div>
-                </td>
-                <td>
-                  <div class="cell-title">Lumi Cosmetics</div>
-                  <div class="cell-sub">Beauty · Tier A</div>
-                </td>
-                <td><span class="badge orange"><span class="dot"></span>High</span></td>
-                <td><span class="owner"><span class="owner-av client">CL</span>顧客返信待ち</span></td>
-                <td><span class="due">明日 12:00</span></td>
-                <td>新規クリエイティブ 3 本の承認依頼</td>
-                <td style="text-align:right; color:var(--text-4);">›</td>
-              </tr>
-
-              <!-- Row 4 -->
-              <tr onclick="toggleRow(this)">
-                <td>
-                  <div class="cell-title"><span class="chev">▶</span> SKAN postback 4-9% 欠損</div>
-                  <div class="cell-sub">CASE-2410 · MMP: AppsFlyer</div>
-                </td>
-                <td>
-                  <div class="cell-title">Pocket Quest</div>
-                  <div class="cell-sub">App · Tier A</div>
-                </td>
-                <td><span class="badge orange"><span class="dot"></span>High</span></td>
-                <td><span class="owner"><span class="owner-av zynect">ZY</span>計測担当</span></td>
-                <td><span class="due">今日 EOD</span></td>
-                <td>SKAN schema を v2.2 に更新</td>
-                <td style="text-align:right; color:var(--text-4);">›</td>
-              </tr>
-
-              <!-- Row 5 -->
-              <tr onclick="toggleRow(this)">
-                <td>
-                  <div class="cell-title"><span class="chev">▶</span> 週次レポート未承認 (3 週連続)</div>
-                  <div class="cell-sub">CASE-2402 · ChatWork通知済</div>
-                </td>
-                <td>
-                  <div class="cell-title">Nori Foods</div>
-                  <div class="cell-sub">CPG · Tier B</div>
-                </td>
-                <td><span class="badge gray"><span class="dot"></span>Medium</span></td>
-                <td><span class="owner"><span class="owner-av client">CL</span>顧客返信待ち</span></td>
-                <td><span class="due">3日経過</span></td>
-                <td>担当者リマインド送付</td>
-                <td style="text-align:right; color:var(--text-4);">›</td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ====== Bottom utility row (small, secondary) ====== -->
-      <div class="util-row">
-
-        <div class="util-card">
-          <div class="util-head">
-            <div class="util-title">Outcome 測定待ち</div>
-            <a class="util-link" href="#">14 件 →</a>
-          </div>
-          <ul class="util-list">
-            <li>
-              <span class="badge purple">D+7</span>
-              <span class="li-main">Acme — Meta予算 +20% (CPA改善検証)</span>
-              <span class="li-meta">残 2d</span>
-            </li>
-            <li>
-              <span class="badge purple">D+14</span>
-              <span class="li-main">Lumi — LP差し替え (CVR検証)</span>
-              <span class="li-meta">残 6d</span>
-            </li>
-            <li>
-              <span class="badge purple">D+28</span>
-              <span class="li-main">Beam — オーディエンス再構成</span>
-              <span class="li-meta">残 19d</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="util-card">
-          <div class="util-head">
-            <div class="util-title">Rule Quality blocker</div>
-            <a class="util-link" href="#">37 件 →</a>
-          </div>
-          <ul class="util-list">
-            <li>
-              <span class="badge orange">High</span>
-              <span class="li-main">R-CAPI-021 / measurement window 未設定</span>
-              <span class="li-meta">未マップ</span>
-            </li>
-            <li>
-              <span class="badge orange">High</span>
-              <span class="li-main">R-GADS-088 / guardrail 未定義</span>
-              <span class="li-meta">3 client影響</span>
-            </li>
-            <li>
-              <span class="badge gray">Med</span>
-              <span class="li-main">R-TT-014 / impact 説明文 不足</span>
-              <span class="li-meta">draft</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="util-card">
-          <div class="util-head">
-            <div class="util-title">最近のジョブ失敗</div>
-            <a class="util-link" href="#">すべて →</a>
-          </div>
-          <ul class="util-list">
-            <li>
-              <span class="badge red">fail</span>
-              <span class="li-main">ingest_meta_insights · Pocket Quest</span>
-              <span class="li-meta">06:42</span>
-            </li>
-            <li>
-              <span class="badge red">fail</span>
-              <span class="li-main">crm_sync · Nori Foods</span>
-              <span class="li-meta">05:18</span>
-            </li>
-            <li>
-              <span class="badge orange">retry</span>
-              <span class="li-main">skan_postback · Pocket Quest</span>
-              <span class="li-meta">04:05</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
+    </main>
   </div>
 </div>
 
